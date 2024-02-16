@@ -1,0 +1,144 @@
+@import "@/app/vars.module.scss";
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $bg-light;
+  padding: 15px 30px;
+  margin-top: 30px;
+  border-radius: 50px;
+
+
+  @media (max-width:655px) {
+    border-radius: 0;
+    background-color: initial;
+  }
+}
+
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+ p {
+  font-size: 24px;
+  color: $grey;
+ }
+
+}
+
+.navItems {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 40px;
+  color: $title;
+
+  @media (max-width:655px) {
+    display: none;
+  }
+}
+
+.signIn {
+  color: $bg;
+  background-color: $orange;
+  padding: 5px 10px;
+  border-radius: 50px;
+
+  @media (max-width:655px) {
+    display: none;
+  }
+}
+
+.navItemsPhone {
+  position: fixed;
+  top:0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $bg-light;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+  a {
+    font-size: 32px;
+    color: $title;
+  }
+  
+}
+
+
+.navBtn, .navBtnOpen {
+  display: none;
+}
+
+@media (max-width: 655px) {
+  .navBtn  {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top:47px;
+    right: 42px;
+    overflow: hidden;
+    z-index: 3;
+  
+    span {
+      width: 40px;
+      height: 2px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      transition: all 0.2s;
+      }
+    span:nth-of-type(2) {
+      top: calc(50% - 10px);
+      }
+    span:nth-of-type(3) {
+      top: calc(50% + 10px);
+      }
+    }
+    .navBtnOpen  {
+      display: block;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top:47px;
+      right: 42px;
+      overflow: hidden;
+      z-index: 3;
+    
+      span {
+        width: 40px;
+        height: 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        transition: all 0.2s;
+        }
+        span:nth-of-type(1) {
+          display: none;
+          }
+          span:nth-of-type(2) {
+          top: 50%;
+          transform: translate(-50%, 0) rotate(45deg);
+          }
+        
+        span:nth-of-type(3) {
+          top:50%;
+          transform: translate(-50%, 0) rotate(-45deg);
+        }
+      }
+}
+
+
+
+

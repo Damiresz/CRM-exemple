@@ -1,0 +1,55 @@
+@import "@/app/vars.module.scss";
+.MainContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+  padding: 100px;
+  @media (max-width:655px) {
+    padding: 30px;
+  }
+  @media (max-width:420px) {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 120px;
+    color: $title;
+    text-shadow: 0 4px 4px $black;
+    text-align: center;
+
+    span {
+      color: $orange;
+      
+    }
+@media (max-width:655px) {
+  font-size: 90px;
+}
+  }
+  h2 {
+    color: $blue;
+    text-shadow: 0 4px 4px $black;
+    font-size: 60px;
+    background-color: $bg-light;
+    padding: 0 40px;
+    line-height: 120%;
+    border-radius: 50px;
+    text-align: center;
+
+    @media (max-width:655px) {
+      font-size: 30px;
+    }
+  }
+
+  p {
+    font-size: 24px;
+    color: $title;
+    text-align: center;
+    text-shadow: 0 4px 2px $black;
+    max-width: 800px;
+    @media (max-width:655px) {
+      font-size: 16px;
+    }
+  }
+}
