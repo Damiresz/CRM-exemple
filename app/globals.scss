@@ -98,3 +98,17 @@ legend {
 body {
   background-color: $bg;
 }
+
+body::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: $orange;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    box-shadow: 0px 0px 0px 100000vh $bg;
+    border-radius: 10px;
+  }

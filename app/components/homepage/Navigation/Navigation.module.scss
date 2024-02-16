@@ -12,6 +12,7 @@
   @media (max-width:655px) {
     border-radius: 0;
     background-color: initial;
+    padding: 15px 0;
   }
 }
 
@@ -52,6 +53,13 @@
   }
 }
 
+.signInPhone {
+  color: $bg;
+  background-color: $orange;
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+
 .navItemsPhone {
   position: fixed;
   top:0;
@@ -83,7 +91,7 @@
     height: 40px;
     position: absolute;
     top:47px;
-    right: 42px;
+    right: 28px;
     overflow: hidden;
     z-index: 3;
   

@@ -58,7 +58,7 @@ export function Navigation() {
               </li>
             ))}
             <li>
-            <Link href="/login">
+            <Link className={styles.signInPhone} href="/login">
               Sign in
             </Link>
             </li>

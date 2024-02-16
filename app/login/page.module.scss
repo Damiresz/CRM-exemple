@@ -1,0 +1,86 @@
+@import "@/app/vars.module.scss";
+.signIn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $bg-light;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 50px 75px;
+  border-radius: 10px;
+
+  @media (max-width:655px) {
+    padding: 25px;
+  }
+
+ button {
+  background-color: $orange;
+  color: $title;
+  width: 100%;
+  padding: 5px;
+  font-size: 20px;
+  border-radius: 10px;
+ }
+
+  h1 {
+    font-size: 32px;
+    color: transparent;
+    background-image: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.3),
+      #ffffff
+    );
+    background-clip: text;
+  }
+}
+
+.singIn_inputs {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+
+  div {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 16px;
+      color: transparent;
+      background-image: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.3),
+        #ffffff
+      );
+      background-clip: text;
+      margin-bottom: 5px;
+    }
+
+    input {
+      height: 36px;
+      background-color: $bg;
+      border-radius: 10px;
+      padding: 2px 5px;
+      width: clamp(300px, 260px + 10vw ,400px);
+    }
+    span {
+      font-size: 12px;
+      color: $error;
+      min-height: 16px;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    font-size: 12px;
+      color: transparent;
+      background-image: linear-gradient(
+        to top,
+        rgba(255, 255, 255, 0.3),
+        #ffffff
+      );
+      background-clip: text;
+  }
+}
