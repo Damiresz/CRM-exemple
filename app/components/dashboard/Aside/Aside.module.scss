@@ -1,0 +1,17 @@
+@import "@/app/vars.module.scss";
+.aside {
+  background-color: $bg-light;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  gap: 20px;
+
+}
+
+.nav_icon {
+  width: 20px;
+  height: auto;
+  color: $gray;
+}

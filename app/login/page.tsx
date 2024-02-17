@@ -14,16 +14,19 @@ export default function Page() {
     <div className={styles.singIn_inputs}>
       <div>
         <label htmlFor="email">Email</label>
-        <input id='email' name='password' type="email" />
+        <input autoComplete="off" id='email' name='password' type="email" />
         <span id='error_email'>asdsadasd</span>
       </div>
       <div>
         <label htmlFor="password">Password</label>
-        <input id='password' name='password' type="password" />
+        <input autoComplete="off" id='password' name='password' type="password" />
         <span id='error_pwd'>errrrorororor</span>
       </div>
       <Link href="/forgot_pwd">forgot password?</Link>
     </div>
+    <Link href='/dashboard'>
     <button type='submit'>Sign in</button>
+    </Link>
+    
   </div>)
 }

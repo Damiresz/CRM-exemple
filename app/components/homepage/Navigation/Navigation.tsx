@@ -9,7 +9,7 @@ type NavLinks = {
   href: string;
 };
 
-export const links: NavLinks[] = [
+const links: NavLinks[] = [
   { name: "Docs", href: "/docs" },
   { name: "Template", href: "/template" },
   { name: "About", href: "/about" },
@@ -31,7 +31,7 @@ export function Navigation() {
   return (
     <nav className={styles.navigation}>
       <Link className={styles.logo} href="/">
-        <Image src="./images/logo.svg" width={50} height={42} alt="logo" />
+        <Image src="./images/logo.svg" width={50} height={43} alt="logo" />
         <p>CRM</p>
       </Link>
       <ul className={styles.navItems}>
@@ -44,7 +44,7 @@ export function Navigation() {
       <Link className={styles.signIn} href="/login">
         Sign in
       </Link>
-      <button onClick={() => setIsOpen(!isOpen)} className={!isOpen ? styles.navBtn : styles.navBtnOpen}>
+      <button onClick={() => setIsOpen((prev) => !prev)} className={!isOpen ? styles.navBtn : styles.navBtnOpen}>
         <span></span>
         <span></span>
         <span></span>

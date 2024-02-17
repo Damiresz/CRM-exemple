@@ -64,6 +64,7 @@
       border-radius: 10px;
       padding: 2px 5px;
       width: clamp(300px, 260px + 10vw ,400px);
+      color: $title;
     }
     span {
       font-size: 12px;

@@ -1,0 +1,55 @@
+@import "@/app/vars.module.scss";
+
+.calendar {
+  margin-top: 20px;
+}
+
+.calendar_title {
+  display: flex;
+  justify-content: space-between;
+
+  * {
+    display: flex;
+    color: $title;
+    gap: 5px;
+  }
+
+  :last-child {
+    :hover {
+      color: $orange;
+    }
+  }
+}
+
+.calendar_body {
+  margin-top: 5px;
+  width: 100%;
+  tr {
+    gap: 2px;
+  }
+  th {
+    font-size: 12px;
+    color: $gray;
+  }
+  td {
+    width: 30px;
+    height: 30px;
+    color: $title;
+    text-align: center;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: $bg-block;
+    }
+  }
+}
+
+.active_day {
+  background-color: $orange;
+
+  &:hover {
+    background-color: $orange !important;
+  }
+}
