@@ -1,21 +1,12 @@
-"use client";
-import { useState } from "react";
 import styles from "./Calendar.module.scss";
-import { CalendarData, daysOfWeek, monthsOfYear } from "./calendar-data";
-import { fetchData } from "@/app/data/actions";
+import { useContext } from "react";
+import { StateContext } from '../Organizer/Organizer';
+import { CalendarData , daysOfWeek, monthsOfYear } from "../Organizer/calendar-data";
 
-export function CalendarBlock() {
-  interface State {
-    currentDate: Date;
-    date: Date;
-    selectedDate: Date;
-  }
 
-  const [state, setState] = useState<State>({
-    currentDate: new Date(),
-    date: new Date(),
-    selectedDate: new Date(),
-  });
+export function Calendar() {
+
+  const { state, setState } = useContext(StateContext);
 
   const monthData = CalendarData(state.date);
 
@@ -44,7 +35,6 @@ export function CalendarBlock() {
   const handleDayClick =  (day: Date) => {
     setState((prevState) => ({ ...prevState, selectedDate: day}));
   };
-
   return (
     <div className={styles.calendar}>
       <div className={styles.calendar_title}>
@@ -96,3 +86,4 @@ export function CalendarBlock() {
     </div>
   );
 }
+

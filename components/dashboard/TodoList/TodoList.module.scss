@@ -1,0 +1,58 @@
+@import "@/app/vars.module.scss";
+
+.todoList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+
+  >:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    >h3 {
+      margin-right: auto;
+      color: $title;
+    }
+    svg {
+      color: $gray;
+    }
+    p {
+      color: $gray;
+      font-size: 12px;
+    }
+  }
+}
+
+.listItems {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+
+
+}
+
+.listItem {
+  background-color: $bg-block;
+  padding: 10px;
+  border-radius: 10px;
+
+  >:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h5 {
+      color: $title;
+    }
+    svg {
+      color: $gray;
+    }
+  }
+
+  p {
+    padding: 8px 0;
+    font-size: 14px;
+    color: $gray;
+  }
+}

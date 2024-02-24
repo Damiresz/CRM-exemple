@@ -1,8 +1,4 @@
 
-// function getDaysInMonth (date:Date) {
-//   return date.getDate();
-// }
-
 function getDayOfWeek (date:Date):number {
   const dayOfWeek = date.getDay();
 
@@ -12,8 +8,8 @@ function getDayOfWeek (date:Date):number {
 export function CalendarData(date: Date) {
   const result: (Date | undefined)[][]  = [];
 
-  const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate(); // Получаем количество дней в месяце
-  const monthStartsOn = getDayOfWeek(new Date(date.getFullYear(), date.getMonth(), 1)); // Получаем день недели, с которого начинается месяц
+  const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  const monthStartsOn = getDayOfWeek(new Date(date.getFullYear(), date.getMonth(), 1));
 
   const year = date.getFullYear();
   const month = date.getMonth();
@@ -35,7 +31,7 @@ export function CalendarData(date: Date) {
   return result;
 }
 
-export const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+export const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat","Sun"];
 
 export const monthsOfYear = [
   "January",
