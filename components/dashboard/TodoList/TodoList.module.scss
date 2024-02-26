@@ -56,3 +56,52 @@
     color: $gray;
   }
 }
+
+
+.addItem {
+  background-color: $bg-block;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  >:nth-child(1) {
+    margin-top: 25px;
+    color: $title;
+    background-color: $bg-light;
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+
+  >:nth-child(2) {
+    font-size: 14px;
+    color: $gray;
+    width: 100%;
+    color: $title;
+    background-color: $bg-light;
+    resize: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+  >:nth-child(3) {
+    background-color: $orange;
+    color: $title;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  >:nth-child(4) {
+    position: absolute;
+    top:10px;
+    right: 10px;
+    color: $gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50% -50%);
+  } 
+
+}
