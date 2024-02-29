@@ -27,7 +27,6 @@ export function CalendarData(date: Date) {
       }
     }
   }
-
   return result;
 }
 

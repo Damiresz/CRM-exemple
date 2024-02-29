@@ -1,7 +1,7 @@
 import { GoPlus } from "react-icons/go";
 import styles from "./TodoList.module.scss";
 import { CiEdit } from "react-icons/ci";
-import { useContext, useEffect, useReducer, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StateContext } from "../Organizer/Organizer";
 import { IErrorState, createTodo, fetchTodoList } from "@/app/data/actions";
 import { ITodo } from "@/app/data/TodoListData";
@@ -13,14 +13,29 @@ export function TodoList() {
   const [data, setData] = useState<ITodo[] | null>(null);
   const [add, setAdd] = useState(false);
 
+  const [success, setSuccess] = useState(false);
+
   const initialformError: IErrorState = { message: null, errors: {} };
-  const [formState, setFormState] = useFormState(createTodo, initialformError);
+
+  const [formState, setFormState] = useFormState(
+    (prevState: IErrorState, formData: FormData) =>
+      createTodo(prevState, state.selectedDate, formData),
+    initialformError
+  );
 
   const handleAddClick = () => {
     setAdd((prev) => !prev);
   };
 
-  const handleSubmitAdd = () => {};
+  useEffect(() => {
+    if (formState.message == "Success") {
+      setSuccess(true);
+      setTimeout(() => {
+        setAdd((prev) => (prev = false));
+        setSuccess(false);
+      }, 3000);
+    }
+  }, [formState]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +44,7 @@ export function TodoList() {
     };
     fetchData();
     setAdd((prev) => (prev = false));
-  }, [state.selectedDate]);
+  }, [state.selectedDate ,formState]);
 
   return (
     <div className={styles.todoList}>
@@ -50,9 +65,10 @@ export function TodoList() {
                 type="text"
                 placeholder="Title"
               />
-              {formState.errors?.title?.map((error) => (
-                <span>{error}</span>
-              ))}
+              {formState &&
+                formState.errors?.title?.map((error) => (
+                  <span key={error}>{error}</span>
+                ))}
             </div>
             <div>
               <textarea
@@ -61,14 +77,22 @@ export function TodoList() {
                 placeholder="description"
                 rows={5}
               ></textarea>
-              {formState.errors?.description?.map((error) => (
-                <span>{error}</span>
-              ))}
+              {formState &&
+                formState.errors?.description?.map((error) => (
+                  <span key={error}>{error}</span>
+                ))}
             </div>
             <button type="submit">Add</button>
             <button onClick={() => handleAddClick()}>
               <IoClose />
             </button>
+            <div
+              className={`${styles.successAddTodo} ${
+                success ? styles.visible : styles.hidden
+              }`}
+            >
+              <span>{formState && formState.message}</span>
+            </div>
           </form>
         )}
         {data?.map((todo, index) => (

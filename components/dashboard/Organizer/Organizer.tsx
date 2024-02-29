@@ -17,7 +17,7 @@ interface IStateContext {
   >;
 }
 
-const CalendarState = {
+const CalendarState:State = {
   currentDate: new Date(),
   date: new Date(),
   selectedDate: new Date(),
