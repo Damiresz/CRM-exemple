@@ -3,8 +3,9 @@ import styles from "./Aside.module.scss";
 import Link from "next/link";
 import { IoExitOutline } from "react-icons/io5";
 import { NavLinks } from "../NavLinks/NavLinks";
+import { PropsWithChildren } from "react";
 
-export function Aside() {
+export function Aside({children}: PropsWithChildren) {
   return (
     <div className={styles.aside}>
       <Image
@@ -13,8 +14,7 @@ export function Aside() {
         height={32}
         alt="logo"
       />
-      <NavLinks />
-
+     {children}
       <Link href="/">
         <IoExitOutline className={styles.nav_icon} />
       </Link>

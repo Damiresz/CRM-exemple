@@ -1,8 +1,8 @@
 "use client";
 import { createContext, useState,  } from "react";
 import styles from "./Organizer.module.scss";
-import { Calendar } from "../Calendar/Calendar";
-import { TodoList } from "../TodoList/TodoList";
+import { Calendar } from "./Calendar/Calendar";
+import { TodoList } from "./TodoList/TodoList";
 
 interface State {
   currentDate: Date;

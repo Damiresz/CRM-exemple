@@ -63,6 +63,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  
+
 
   > :nth-child(1) {
     input {
@@ -71,6 +73,7 @@
       background-color: $bg-light;
       padding: 5px 10px;
       border-radius: 10px;
+      width: 100%;
     }
     span {
       font-size: 12px;
@@ -112,6 +115,15 @@
     align-items: center;
     transform: translate(-50% -50%);
   }
+}
+
+
+.addItemHidden {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  position: absolute;
+  top:0;
 }
 
 .successAddTodo {

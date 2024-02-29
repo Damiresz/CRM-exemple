@@ -1,7 +1,7 @@
 import styles from "./Calendar.module.scss";
 import { useContext } from "react";
-import { StateContext } from '../Organizer/Organizer';
-import { CalendarData , daysOfWeek, monthsOfYear } from "../Organizer/calendar-data";
+import { StateContext } from '../Organizer';
+import { CalendarData , daysOfWeek, monthsOfYear } from "../calendar-data";
 
 
 export function Calendar() {

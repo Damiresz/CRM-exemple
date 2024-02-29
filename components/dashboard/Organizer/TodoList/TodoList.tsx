@@ -1,12 +1,14 @@
 import { GoPlus } from "react-icons/go";
 import styles from "./TodoList.module.scss";
 import { CiEdit } from "react-icons/ci";
-import { useContext, useEffect, useState } from "react";
-import { StateContext } from "../Organizer/Organizer";
+import { useCallback, useContext, useEffect, useState } from "react";
+import { StateContext } from "../Organizer";
 import { IErrorState, createTodo, fetchTodoList } from "@/app/data/actions";
 import { ITodo } from "@/app/data/TodoListData";
 import { IoClose } from "react-icons/io5";
 import { useFormState } from "react-dom";
+
+
 
 export function TodoList() {
   const { state } = useContext(StateContext);
@@ -23,28 +25,28 @@ export function TodoList() {
     initialformError
   );
 
-  const handleAddClick = () => {
+  const handleAddClick = useCallback(() => {
     setAdd((prev) => !prev);
-  };
+  },[]);
 
   useEffect(() => {
-    if (formState.message == "Success") {
+    if (formState.message === "Success") {
       setSuccess(true);
-      setTimeout(() => {
-        setAdd((prev) => (prev = false));
+      const banner = setTimeout(() => {
+        setAdd(false);
         setSuccess(false);
       }, 3000);
+      return () => clearTimeout(banner);
     }
   }, [formState]);
-
+  
   useEffect(() => {
     const fetchData = async () => {
       const todoData = await fetchTodoList(state.selectedDate);
       setData(todoData);
     };
     fetchData();
-    setAdd((prev) => (prev = false));
-  }, [state.selectedDate ,formState]);
+  }, [state.selectedDate, success]);
 
   return (
     <div className={styles.todoList}>
@@ -56,8 +58,7 @@ export function TodoList() {
         <p>View more</p>
       </div>
       <div className={styles.listItems}>
-        {add && (
-          <form action={setFormState} className={styles.addItem}>
+          <form action={setFormState} className={`${styles.addItem} ${!add? styles.addItemHidden : ''}`}>
             <div>
               <input
                 id="todoTitle"
@@ -94,7 +95,6 @@ export function TodoList() {
               <span>{formState && formState.message}</span>
             </div>
           </form>
-        )}
         {data?.map((todo, index) => (
           <div key={index} className={styles.listItem}>
             <div>
